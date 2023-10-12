@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_221938) do
     t.bigint "user_id", null: false
     t.string "activity"
     t.string "notes"
-    t.string "image"
+    t.string "image_url"
     t.integer "stress_level"
     t.integer "hydration"
     t.string "diet"

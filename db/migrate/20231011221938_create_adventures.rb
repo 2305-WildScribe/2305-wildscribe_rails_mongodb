@@ -4,7 +4,7 @@ class CreateAdventures < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.string :activity
       t.string :notes
-      t.string :image
+      t.string :image_url
       t.integer :stress_level
       t.integer :hydration
       t.string :diet

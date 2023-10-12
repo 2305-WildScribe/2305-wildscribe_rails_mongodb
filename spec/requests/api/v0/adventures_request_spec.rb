@@ -7,10 +7,10 @@ RSpec.describe "Adventures API" do
       headers = {"CONTENT_TYPE" => "application/json"}
 
       body = {
-        "data": [
+        "data": 
                {
                    "type": "adventure",
-                   "user_id": 12,
+                   "user_id": user.id,
                    "attributes": {
                        "activity": "Running",
                        "date": "10/11/2023",
@@ -22,20 +22,22 @@ RSpec.describe "Adventures API" do
                        "adventure_id": 1
                    }
                }
-           ]
        }
 
       post "/api/v0/user/adventures", headers: headers, params: body.to_json
 
       expect(response).to be_successful
       expect(response.status).to eq(201)
-      expect(response.body).to eq("Adventure successfully logged")
+
+      message = JSON.parse(response.body, symbolize_names: true)
+
+      expect(message[:message]).to eq("Adventure successfully logged")
 
       adventure = Adventure.last
 
       expect(adventure.activity).to eq("Running")
       expect(adventure.notes).to eq("Running is hard")
-      expect(adventure.image).to eq("https://www.rei.com/dam/parrish_091412_0679_main_lg.jpg")
+      expect(adventure.image_url).to eq("https://www.rei.com/dam/parrish_091412_0679_main_lg.jpg")
       expect(adventure.stress_level).to eq("Very High")
       expect(adventure.hydration).to eq(128)
       expect(adventure.diet).to eq("I eat well")
