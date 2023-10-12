@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       namespace :user do
         resources :adventures
       end
+      post 'user', to: "users#create"
+      patch 'user', to: "users#update"
+      delete 'user', to: "users#destroy"
+      post 'login', to: "users#login"
     end
   end
 end
