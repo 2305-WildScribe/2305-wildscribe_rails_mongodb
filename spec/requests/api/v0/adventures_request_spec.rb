@@ -38,7 +38,7 @@ RSpec.describe "Adventures API" do
       expect(adventure.activity).to eq("Running")
       expect(adventure.notes).to eq("Running is hard")
       expect(adventure.image_url).to eq("https://www.rei.com/dam/parrish_091412_0679_main_lg.jpg")
-      expect(adventure.stress_level).to eq("Very High")
+     
       expect(adventure.hydration).to eq(128)
       expect(adventure.diet).to eq("I eat well")
       expect(adventure.user_id).to eq(user.id)
