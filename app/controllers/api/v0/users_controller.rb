@@ -1,18 +1,18 @@
 class Api::V0::UsersController < ApplicationController
     
     def create
-        user = User.new(user_create_params)
+        user = User.new(user_params[:attributes])
         if user.save
-            render json: {message: "User Created"}, status: 201
+            render json: {data: {type: "user", message: "User Created", attributes: {user_id: user.id}}}, status: 201
         else
             render json: {message: "Invalid Entry"}, status: 422
         end
     end
 
     def login
-        user = User.find_by!(email: login_params[:email])
-        if user.authenticate(login_params[:password])
-            render json: {data: { type: "user", user_id: user.id }}
+        user = User.find_by!(email: user_params[:attributes][:email])
+        if user.authenticate(user_params[:attributes][:password])
+            render json: {data: { type: "user", attributes: {user_id: user.id }}}
         end 
     rescue ActiveRecord::RecordNotFound
         render json: {message: "User not found"}, status: 404
@@ -40,9 +40,6 @@ class Api::V0::UsersController < ApplicationController
 
     private
 
-    def user_create_params
-        params.require(:body).permit(:name, :email, :password, :password_confirmation)
-    end
 
     def login_params
         params.require(:body).permit(:email, :password)
@@ -52,8 +49,8 @@ class Api::V0::UsersController < ApplicationController
         params.require(:body).permit(:user_id)
     end
 
-    def update_params
-        params.require(:body).permit(:name, :email, :password, :password_confirmation)
+    def user_params
+        params.require(:data).permit( :type, attributes: [:name, :email, :password])
     end
 
 end

@@ -17,11 +17,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_221938) do
   create_table "adventures", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "activity"
-    t.string "notes"
+    t.string "date"
     t.string "image_url"
-    t.integer "stress_level"
-    t.integer "hydration"
+    t.string "stress_level"
+    t.string "hours_slept"
+    t.string "sleep_stress_notes"
+    t.string "hydration"
     t.string "diet"
+    t.string "diet_hydration_notes"
+    t.string "beta_notes"
+    t.integer "adventure_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_adventures_on_user_id"
