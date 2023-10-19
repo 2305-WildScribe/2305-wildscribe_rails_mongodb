@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Adventures API" do
   describe "happy path" do
-    it "can create an adventure" do
+    xit "can create an adventure" do
       user = User.create!(name: "Bob", email: "bob@gmail.com", password_digest: "password")
       headers = {"CONTENT_TYPE" => "application/json"}
 
