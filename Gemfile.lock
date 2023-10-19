@@ -71,6 +71,7 @@ GEM
     bcrypt (3.1.19)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    bson (4.15.0)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -115,6 +116,13 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    mongo (2.19.1)
+      bson (>= 4.14.1, < 5.0.0)
+    mongoid (8.1.2)
+      activemodel (>= 5.1, < 7.1, != 7.0.0)
+      concurrent-ruby (>= 1.0.5, < 2.0)
+      mongo (>= 2.18.0, < 3.0.0)
+      ruby2_keywords (~> 0.0.5)
     msgpack (1.7.2)
     net-imap (0.4.1)
       date
@@ -195,6 +203,7 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
+    ruby2_keywords (0.0.5)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -230,6 +239,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  mongoid
   pg (~> 1.1)
   pry
   puma (~> 5.0)
