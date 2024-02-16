@@ -1,24 +1,50 @@
-# README
+### Users
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- **Create User**
+  - Method: POST
+  - Endpoint: `/api/v0/users`
+  - Action: `users#create`
 
-Things you may want to cover:
+- **Update User**
+  - Method: PATCH
+  - Endpoint: `/api/v0/user`
+  - Action: `users#update`
 
-* Ruby version
+- **Destroy User**
+  - Method: DELETE
+  - Endpoint: `/api/v0/user`
+  - Action: `users#destroy`
 
-* System dependencies
+- **Login User**
+  - Method: POST
+  - Endpoint: `/api/v0/user`
+  - Action: `users#login`
 
-* Configuration
+### User Adventures
 
-* Database creation
+- **List User Adventures**
+  - Method: POST
+  - Endpoint: `/api/v0/user/adventures`
+  - Action: `adventures#index`
 
-* Database initialization
+- **Show User Adventure**
+  - Method: POST
+  - Endpoint: `/api/v0/user/adventure`
+  - Action: `adventures#show`
 
-* How to run the test suite
+### Adventures
 
-* Services (job queues, cache servers, search engines, etc.)
+- **Update Adventure**
+  - Method: PUT
+  - Endpoint: `/api/v0/adventure`
+  - Action: `adventures#update`
 
-* Deployment instructions
+- **Create Adventure**
+  - Method: POST
+  - Endpoint: `/api/v0/adventure`
+  - Action: `adventures#create`
 
-* ...
+- **Delete Adventure**
+  - Method: DELETE
+  - Endpoint: `/api/v0/adventure`
+  - Action: `adventures#delete`
